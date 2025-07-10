@@ -32,7 +32,7 @@ export function generateBuktiLolosPDF(peserta, jsPDF, autoTable) {
     // ===== JUDUL =====
     doc.setFontSize(16);
     doc.setFont('times new roman', 'bold'); // <-- Diubah ke times
-    doc.text('BUKTI LOLOS SELEKSI', doc.internal.pageSize.getWidth() / 2, 50, { align: 'center' });
+    doc.text('BUKTI LOLOS SELEKSI', doc.internal.pageSize.getWidth() / 2, 60, { align: 'center' });
     
     doc.setLineWidth(1);
     doc.line(20, 45, 190, 45);
@@ -40,11 +40,11 @@ export function generateBuktiLolosPDF(peserta, jsPDF, autoTable) {
     // ===== PARAGRAF =====
     doc.setFontSize(12);
     doc.setFont('times new roman', 'normal'); // <-- Diubah ke times
-    doc.text('Dengan ini menyatakan bahwa Calon Peserta dengan data di bawah ini:', 20, 60);
+    doc.text('Dengan ini menyatakan bahwa Calon Peserta dengan data di bawah ini:', 20, 70);
 
     // ===== TABEL =====
     doc.autoTable({
-      startY: 70,
+      startY: 80,
       theme: 'plain',
       body: [
         ['Nama Lengkap', `: ${getData(peserta['NAMA LENGKAP'])}`],
@@ -68,7 +68,7 @@ export function generateBuktiLolosPDF(peserta, jsPDF, autoTable) {
     let finalY = doc.lastAutoTable.finalY || 100;
     
     doc.setFont('times new roman', 'normal'); // <-- Diubah ke times
-    doc.text('Telah dinyatakan LOLOS dan berhak untuk mengikuti program Future LeadersFellowship Chapter Universitas Jember.', 20, finalY + 10);
+    doc.text('Telah dinyatakan LOLOS dan berhak untuk mengikuti program FLF Chapter UNEJ.', 20, finalY + 10);
     doc.text('Wallahul Muwafieq Illa Aqwamith Tharieq', 20, finalY + 30);
 
     // ===== TTD =====
